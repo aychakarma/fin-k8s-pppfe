@@ -1,1 +1,1 @@
-kubectl port-forward service/springboot-backend 4646:8030
+kubectl port-forward service/springboot-backend 4646:8020

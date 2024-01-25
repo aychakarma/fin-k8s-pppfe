@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysqldb-test
+  name: mysqldb
   labels:
-    name: mysql-service-test
+    name: mysql-service
 spec:
   ports:
-    - port: 3307
-      targetPort: 3307
+    - port: 3306
+      targetPort: 3306
   selector:
-    app: mysqldb-test
+    app: mysqldb

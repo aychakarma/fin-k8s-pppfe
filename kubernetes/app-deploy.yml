@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deploy-test
+  name: backend-deploy
   labels:
-    app: backend-app-test
+    app: backend-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend-app-test
+      app: backend-app
   template:
     metadata:
       labels:
-        app: backend-app-test
+        app: backend-app
     spec:
       containers:
         - name: backend-container
-          image: karma12/crud2-spring-boot
+          image: karma12/test-spring-boot
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8030
           env:
             - name: DB_HOST
-              value: mysqldb-test
+              value: mysqldb
             - name: DB_NAME
               value: crud-db
             - name: DB_USERNAME
