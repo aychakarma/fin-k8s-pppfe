@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-deploy
+  name: mysql-deploy-test
   labels:
-   app: mysqldb
+    app: mysqldb-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysqldb
+      app: mysqldb-test
   template:
     metadata:
       labels:
-        app: mysqldb
+        app: mysqldb-test
     spec:
       containers:
-      - name: mysqldb
-        image: mysql:5.7
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 3306
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: Password123
-        - name: MYSQL_DATABASE
-          value: crud-db
+        - name: mysqldb
+          image: mysql:5.7
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3307
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: Password123
+            - name: MYSQL_DATABASE
+              value: crud-db
