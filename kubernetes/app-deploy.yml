@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devss-deploy
+  name: nouveau-backend-deploy
   labels:
-   app: backend-app
+    app: backend-app
 spec:
   replicas: 1
   selector:
@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: karma12/devss-spring-boot
+        image: karma12/new-spring-boot
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8060
+        - containerPort: 8080
         env:
         - name: DB_HOST
           value: mysqldb
