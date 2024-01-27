@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devss-mysql-deploy
+  name: nouveau-mysqldb-deploy
   labels:
-   app: mysqldb
+    app: mysqldb
 spec:
   replicas: 1
   selector:
