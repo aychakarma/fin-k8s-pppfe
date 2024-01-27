@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: dev-mysqldb-service
+  name: test-mysqldb-service
   labels:
     name: mysql-service
 spec:

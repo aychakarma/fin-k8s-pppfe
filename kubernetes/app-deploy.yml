@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dev-deploy
+  name: prod-deploy
   labels:
    app: backend-app
 spec:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: karma12/dev-spring-boot:v3
+        image: karma12/prod-spring-boot
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8040
