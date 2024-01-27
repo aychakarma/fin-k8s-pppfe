@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prod-mysql-deploy
+  name: devss-mysql-deploy
   labels:
    app: mysqldb
 spec:
