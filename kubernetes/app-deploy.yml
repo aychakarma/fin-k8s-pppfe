@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: karma12/prod-spring-boot
+        image: karma12/prods-spring-boot
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8040
+        - containerPort: 8060
         env:
         - name: DB_HOST
           value: mysqldb
