@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dev-deploy
+  name: backend-deploy
   labels:
    app: backend-app
 spec:
@@ -19,7 +19,7 @@ spec:
         image: karma12/dev-spring-boot:v3
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8040
+        - containerPort: 8030
         env:
         - name: DB_HOST
           value: mysqldb
