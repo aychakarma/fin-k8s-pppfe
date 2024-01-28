@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prod-deploy
+  name: eqprod-deploy
   labels:
-   app: backend-app
+    app: backend-app
 spec:
   replicas: 1
   selector:
@@ -15,17 +15,17 @@ spec:
         app: backend-app
     spec:
       containers:
-      - name: backend-container
-        image: karma12/prod-spring-boot
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 8040
-        env:
-        - name: DB_HOST
-          value: mysqldb
-        - name: DB_NAME
-          value: crud-db
-        - name: DB_USERNAME
-          value: root
-        - name: DB_PASSWORD
-          value: Password123
+        - name: backend-container
+          image: karma12/prod-spring-boot:fin
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8030
+          env:
+            - name: DB_HOST
+              value: eqproddb
+            - name: DB_NAME
+              value: crud-db
+            - name: DB_USERNAME
+              value: root
+            - name: DB_PASSWORD
+              value: Password123
