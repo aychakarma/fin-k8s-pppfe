@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-mysql-deploy
+  name: eqtest-mysql-deploy
   labels:
-    app: mysqldb
+    app: eqtestdb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysqldb
+      app: eqtestdb
   template:
     metadata:
       labels:
-        app: mysqldb
+        app: eqtestdb
     spec:
       containers:
-        - name: mysqldb
-          image: mysql:5.7  # Assurez-vous que l'image est correcte
+        - name: eqtestdb
+          image: mysql:5.7
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306
