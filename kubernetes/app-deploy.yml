@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend-container
-          image: karma12/eqtest-spring-boot:fins
+          image: karma12/test-spring-boot:fins
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8030
