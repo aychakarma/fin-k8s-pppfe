@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-backend
+  name: eqtest-backend
   labels:
     name: backend-service
 spec:
