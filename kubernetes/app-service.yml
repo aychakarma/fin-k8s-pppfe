@@ -9,6 +9,6 @@ spec:
   ports:
     - port: 8040
       targetPort: 8040
-      nodePort: 30009
+      nodePort: 30002
   selector:
     app: backend-app
