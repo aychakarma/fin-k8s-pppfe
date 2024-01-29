@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eqtest-mysql-deploy
+  name: mysqltest-deploy
   labels:
-    app: eqtestdb
+   app: mysqldb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eqtestdb
+      app: mysqldb
   template:
     metadata:
       labels:
-        app: eqtestdb
+        app: mysqldb
     spec:
       containers:
-        - name: eqtestdb
-          image: mysql:5.7
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 3306
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: Password123
-            - name: MYSQL_DATABASE
-              value: crud-db
+      - name: mysqldb
+        image: mysql:5.7
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3306  # Change to a different port, e.g., 3307
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: Password123
+        - name: MYSQL_DATABASE
+          value: crud-db
