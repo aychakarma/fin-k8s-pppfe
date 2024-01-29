@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysqltest
+  name: mysql
   labels:
-   app: mysqltest
+   app: mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysqltest
+      app: mysql
   template:
     metadata:
       labels:
-        app: mysqltest
+        app: mysql
     spec:
       containers:
-      - name: mysqldb
+      - name: mysql
         image: mysql:5.7
         imagePullPolicy: IfNotPresent
         ports:
