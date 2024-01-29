@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysqltest-deploy
+  name: mysqltest
   labels:
-   app: mysqldb
+   app: mysqltest
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysqldb
+      app: mysqltest
   template:
     metadata:
       labels:
-        app: mysqldb
+        app: mysqltest
     spec:
       containers:
       - name: mysqldb
