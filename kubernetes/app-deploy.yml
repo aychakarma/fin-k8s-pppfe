@@ -22,7 +22,7 @@ spec:
             - containerPort: 8030
           env:
             - name: DB_HOST
-              value: mysqldb
+              value: eqtestdb
             - name: DB_NAME
               value: crud-db
             - name: DB_USERNAME
