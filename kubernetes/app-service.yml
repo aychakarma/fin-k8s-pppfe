@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
-metadata:
-  name: eqtest-backend
+metadata: 
+  name: springboottest-backend
   labels:
     name: backend-service
 spec:
   type: NodePort
   ports:
-    - port: 8030
-      targetPort: 8030
-      nodePort: 30005
+    - port: 8020  # Change to a different port, e.g., 8021
+      targetPort: 8020
+      nodePort: 30009  # Change to a different node port, e.g., 30007
   selector:
     app: backend-app
