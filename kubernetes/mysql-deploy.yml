@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: test-mysql-deploy
   labels:
-   app: mysql
+   app: test-mysqldb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: test-mysqldb
   template:
     metadata:
       labels:
-        app: mysql
+        app: test-mysqldb
     spec:
       containers:
-      - name: mysql
+      - name: test-mysqldb
         image: mysql:5.7
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 3306  # Change to a different port, e.g., 3307
+        - containerPort: 3306
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: Password123
         - name: MYSQL_DATABASE
-          value: devops
+          value: test-db  # Changer le nom de la base de données
