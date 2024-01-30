@@ -22,7 +22,7 @@ spec:
         - containerPort: 8020
         env:
         - name: DB_HOST
-          value: mysqldb
+          value: test-mysqldb
         - name: DB_NAME
           value: test-db  # Changer le nom de la base de données
         - name: DB_USERNAME
