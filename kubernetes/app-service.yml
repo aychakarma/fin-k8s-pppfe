@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata: 
-  name: springboot-crud-svc
+  name: springboot-test
   labels:
-    name: springboot-k8s-mysql
+    name: test-service
 spec:
   type: NodePort
   ports:
-    - port: 8020  # Change to a different port, e.g., 8021
+    - port: 8020
       targetPort: 8020
-      nodePort: 30009  # Change to a different node port, e.g., 30007
+      nodePort: 30007  # Choisir un nouveau nodePort
   selector:
-    app: springboot-k8s-mysql
+    app: test-app  # Changer le nom de l'application
