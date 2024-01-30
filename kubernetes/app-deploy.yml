@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: karma12/eqdev-spring-boot:ff
+        image: karma12/eqdev-spring-boot:fb
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8020  # Change to a different port, e.g., 8021
@@ -24,7 +24,7 @@ spec:
         - name: DB_HOST
           value: mysql
         - name: DB_NAME
-          value: crud-db
+          value: devops
         - name: DB_USERNAME
           value: root
         - name: DB_PASSWORD
