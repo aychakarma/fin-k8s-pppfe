@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backendtest-deploy
+  name: springboot-crud-deployment
   labels:
-   app: backend-app
+   app: springboot-k8s-mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend-app
+      app: springboot-k8s-mysql
   template:
     metadata:
       labels:
-        app: backend-app
+        app: springboot-k8s-mysql
     spec:
       containers:
-      - name: backend-container
+      - name: springboot-k8s-mysql
         image: karma12/eqdev-spring-boot:fb
         imagePullPolicy: IfNotPresent
         ports:
