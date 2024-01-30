@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: test-container
-        image: karma12/Dev-spring-boot  # Garder l'image d'origine ou spécifier la nouvelle image
+        image: karma12/dev-spring-boot:fg  # Garder l'image d'origine ou spécifier la nouvelle image
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8020
