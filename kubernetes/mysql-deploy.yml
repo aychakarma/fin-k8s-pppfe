@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mysql-deploy
   labels:
-   app: mysqldb
+    app: mysqldb
 spec:
   replicas: 1
   selector:
@@ -15,13 +15,19 @@ spec:
         app: mysqldb
     spec:
       containers:
-      - name: mysqldb
-        image: mysql:5.7
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 3306
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: Password123
-        - name: MYSQL_DATABASE
-          value: crud-db
+        - name: mysqldb
+          image: mysql:5.7
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: MYSQL_DATABASE
