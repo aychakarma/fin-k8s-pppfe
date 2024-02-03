@@ -30,4 +30,4 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: backend-config
-                  key: MYSQL_DATABASE
+                  key: DB_NAME
