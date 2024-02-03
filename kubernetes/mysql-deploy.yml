@@ -29,5 +29,5 @@ spec:
             - name: MYSQL_DATABASE
               valueFrom:
                 configMapKeyRef:
-                  name: mysql-config
+                  name: backend-config
                   key: MYSQL_DATABASE
