@@ -22,7 +22,7 @@ spec:
   tasks:
     - name: fetch-sources
       taskRef:
-        name: git-clones
+        name: git-clone
       workspaces:
         - name: output
           workspace: k8s
