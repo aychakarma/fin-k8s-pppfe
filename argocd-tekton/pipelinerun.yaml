@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: clone-read-run-equipe-e
+  namespace: default
+spec:
+  pipelineRef:
+    name: clone-read
+  workspaces:
+    - name: shared-data
+      persistentVolumeClaim:
+        claimName: tekton-workspace-pvc
+  params:
+    - name: repo-url
+      value: https://github.com/aychakarma/fin-k8s-pppfe.git
+    - name: branch
+      value: "dev"
+    - name: image
+      value: "karma12/eqdev-spring-boot:f1"
+    - name: context
+      value: "/workspace/shared-data"
+  serviceAccountName: mon-nouveau-sa
+  podTemplate:
+    imagePullSecrets:
+      - name: docker-secret
