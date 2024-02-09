@@ -15,7 +15,7 @@ spec:
         app: backend-app
     spec:
       containers:
-        - name: backend-container
+        - name: backend-containers
           image: karma12/eqdev-spring-boot:f2
           imagePullPolicy: IfNotPresent
           ports:
