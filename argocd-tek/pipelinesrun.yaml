@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: clone-reads
+  name: final-execution
   namespace: default
 spec:
   pipelineRef:
-    name: clone-reads
+    name: complete-pipelines
   workspaces:
     - name: k8s
       persistentVolumeClaim:
