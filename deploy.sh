@@ -1,13 +1,17 @@
+KUBECTL_PATH="/usr/bin/kubectl"
+
+chmod +x "$KUBECTL_PATH"
+
 cd kubernetes
 
-kubectl apply -f secret.yaml
+${KUBECTL_PATH} apply -f secret.yaml
 sleep 2
-kubectl apply -f configmap.yaml
+${KUBECTL_PATH} apply -f configmap.yaml
 sleep 2
-kubectl apply -f mysql-deploy.yml 
+${KUBECTL_PATH} apply -f mysql-deploy.yml 
 sleep 2
-kubectl apply -f mysql-service.yml
+${KUBECTL_PATH} apply -f mysql-service.yml
 sleep 2
-kubectl apply -f app-deploy.yml 
+${KUBECTL_PATH} apply -f app-deploy.yml 
 sleep 2
-kubectl apply -f app-service.yml
+${KUBECTL_PATH} apply -f app-service.yml
