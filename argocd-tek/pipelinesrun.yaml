@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: clone-readsss
+  name: clone-reads
   namespace: default
 spec:
   pipelineRef:
