@@ -67,9 +67,9 @@ spec:
         - name: image
           value: "$(params.image)"
           
-    - name: prepare-deployments
+    - name: prepare-deploymentss
       taskRef:
-        name: prepare-deployments
+        name: prepare-deploymentss
       runAfter:
         - docker-pushs
       workspaces:
