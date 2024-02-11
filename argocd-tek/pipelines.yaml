@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: clone-reads
+  name: complete-pipelines
 spec:
   description: "This pipeline clones a git repo, makes mvnw executable, and builds with Maven, then builds and pushes a Docker image."
   params:
@@ -18,51 +18,59 @@ spec:
       type: string
       description: "The Docker build context path."
   workspaces:
-    - name: k8s
+    - name: shared-data
   tasks:
-    - name: fetch-sources
+    - name: fetch-source
       taskRef:
         name: git-clone
       workspaces:
         - name: output
-          workspace: k8s
+          workspace: shared-data
       params:
         - name: url
           value: "$(params.repo-url)"
         - name: branch
           value: "$(params.branch)"
 
-    - name: maven-tasks
+    - name: maven-build
       taskRef:
-        name: maven-tasks
+        name: maven-task
       runAfter:
-        - fetch-sources
+        - fetch-source
       workspaces:
-        - name: k8s
+        - name: shared-data
       params:
         - name: maven-command
           value: "clean install -DskipTests"
 
-    - name: docker-builds
+    - name: docker-build
       taskRef:
-        name: docker-builds
+        name: docker-build
       runAfter:
-        - maven-tasks
+        - maven-build
       workspaces:
-        - name: k8s
+        - name: shared-data
       params:
         - name: image
           value: "$(params.image)"
         - name: context
           value: "$(params.context)"
 
-    - name: docker-pushs  # Ajout de la tâche pour pousser l'image Docker
+    - name: docker-push  # Ajout de la tâche pour pousser l'image Docker
       taskRef:
-        name: docker-pushs
+        name: docker-push
       runAfter:
-        - docker-builds
+        - docker-build
       workspaces:
-        - name: k8s
+        - name: shared-data
       params:
         - name: image
           value: "$(params.image)"
+          
+    - name: prepare-deployment
+      taskRef:
+        name: prepare-deployment
+      runAfter:
+        - docker-push
+      workspaces:
+        - name: shared-data
