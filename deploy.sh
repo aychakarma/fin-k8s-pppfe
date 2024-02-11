@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Définition du chemin vers kubectl
-KUBECTL_PATH=/usr/local/bin/kubectl
+KUBECTL_PATH=/usr/bin/kubectl
 
 # Changement vers le répertoire contenant les fichiers YAML
 cd kubernetes
