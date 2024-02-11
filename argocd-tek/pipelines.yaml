@@ -18,59 +18,59 @@ spec:
       type: string
       description: "The Docker build context path."
   workspaces:
-    - name: shared-data
+    - name: k8s
   tasks:
-    - name: fetch-source
+    - name: fetch-sources
       taskRef:
         name: git-clone
       workspaces:
         - name: output
-          workspace: shared-data
+          workspace: k8s
       params:
         - name: url
           value: "$(params.repo-url)"
         - name: branch
           value: "$(params.branch)"
 
-    - name: maven-build
+    - name: maven-tasks
       taskRef:
-        name: maven-task
+        name: maven-tasks
       runAfter:
-        - fetch-source
+        - fetch-sources
       workspaces:
-        - name: shared-data
+        - name: k8s
       params:
         - name: maven-command
           value: "clean install -DskipTests"
 
-    - name: docker-build
+    - name: docker-builds
       taskRef:
-        name: docker-build
+        name: docker-builds
       runAfter:
-        - maven-build
+        - maven-tasks
       workspaces:
-        - name: shared-data
+        - name: k8s
       params:
         - name: image
           value: "$(params.image)"
         - name: context
           value: "$(params.context)"
 
-    - name: docker-push  # Ajout de la tâche pour pousser l'image Docker
+    - name: docker-pushs  # Ajout de la tâche pour pousser l'image Docker
       taskRef:
-        name: docker-push
+        name: docker-pushs
       runAfter:
-        - docker-build
+        - docker-builds
       workspaces:
-        - name: shared-data
+        - name: k8s
       params:
         - name: image
           value: "$(params.image)"
           
-    - name: prepare-deployment
+    - name: prepare-deployments
       taskRef:
-        name: prepare-deployment
+        name: prepare-deployments
       runAfter:
-        - docker-push
+        - docker-pushs
       workspaces:
-        - name: shared-data
+        - name: k8s
