@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
-  name: argocd-listener
+  name: argocd-listeners
   namespace: default
 spec:
   serviceAccountName: mon-nouveau-sa
