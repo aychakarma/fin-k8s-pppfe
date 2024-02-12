@@ -7,7 +7,7 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        generateName: argocd-
+        generateName: pipelines-trigger-
         annotations:
         argocd.argoproj.io/sync-options: Prune=false
       spec:
