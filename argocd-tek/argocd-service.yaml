@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Service
-metadata:
-  name: el-argocd-listener-service
+metadata: 
+  name: argocd-svc
+  labels:
+    name: argocd-svc
 spec:
-  selector:
-    app: argocd-listener  # Remplacez ceci par les labels correspondants à votre pod
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080  # Port sur lequel votre application écoute à l'intérieur du pod
-      nodePort: 32503    # Port NodePort que vous souhaitez utiliser
   type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30004
+  selector:
+    app: argocd-listener
