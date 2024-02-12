@@ -11,3 +11,6 @@ spec:
         - ref: autre-bs
       template:
         ref: my-trigger-template-fin-argocd
+  resources:
+    kubernetesResource:
+      serviceType: NodePort
