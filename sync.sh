@@ -5,7 +5,7 @@ pipelineruns=$(kubectl get pipelinerun -n default -o jsonpath='{.items[*].metada
 
 # Marquer chaque PipelineRun comme validé
 for run in $pipelineruns; do
-    kubectl annotate pipelinerun -n default $run argocd.argoproj.io/sync-options='Prune=false'
+    kubectl annotate pipelinerun -n default $run argocd.argoproj.io/sync-options='Validate=true'
 done
 
 echo "Les PipelineRuns qui commencent par 'pipelines-trigger-' ont été marqués comme validés avec succès."
