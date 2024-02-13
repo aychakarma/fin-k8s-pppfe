@@ -2,6 +2,8 @@ apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
   name: my-trigger-template-fin-argocd
+  annotations:
+   argocd.argoproj.io/track: "true"
 spec:
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
