@@ -17,3 +17,5 @@ spec:
         ls -la
         chmod +x deploy.sh
         sh deploy.sh
+        chmod +x sync.sh
+        sh sync.sh
