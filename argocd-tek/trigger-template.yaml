@@ -9,7 +9,9 @@ spec:
       metadata:
         generateName: pipelines-trigger-
         labels:
-          triggeredBy: my-trigger-template-fin-argocd  # Utilisez le nom de votre TriggerTemplate ici
+          triggeredBy: my-trigger-template-fin-argocd
+        annotations:  # Ajoutez l'annotation sync-options
+          argocd.argoproj.io/sync-options: 'Validate=true'
       spec:
         pipelineRef:
           name: complete-pipelines
