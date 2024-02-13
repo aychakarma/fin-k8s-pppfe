@@ -3,15 +3,15 @@ kind: TriggerTemplate
 metadata:
   name: my-trigger-template-fin-argocd
   annotations:
-   argocd.argoproj.io/track: "true"
+    argocd.argoproj.io/track: "true"
 spec:
   resourcetemplates:
-    - apiVersion: tekton.dev/v1beta1
+    - apiVersion: tekton.dev/v1
       kind: PipelineRun
       metadata:
         generateName: pipelines-trigger-
         annotations:
-        argocd.argoproj.io/sync-options: Prune=false
+          argocd.argoproj.io/sync-options: Prune=false
       spec:
         pipelineRef:
           name: complete-pipelines
@@ -29,7 +29,10 @@ spec:
           - name: context
             value: "/workspace/k8s"
         serviceAccountName: mon-nouveau-sa
+        resources:
+          - name: source
+            resourceRef:
+              name: pipelinerun-resource
         podTemplate:
           imagePullSecrets:
             - name: docker-secret
-

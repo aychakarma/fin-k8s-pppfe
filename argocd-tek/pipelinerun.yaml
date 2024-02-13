@@ -3,22 +3,7 @@ kind: PipelineRun
 metadata:
   generateName: pipelines-trigger-
 spec:
-  pipelineRef:
-    name: complete-pipelines
-  workspaces:
-    - name: k8s
-      persistentVolumeClaim:
-        claimName: test
-  params:
-    - name: repo-url
-      value: "https://github.com/aychakarma/fin-k8s-pppfe.git"
-    - name: branch
-      value: "dev"
-    - name: image
-      value: "karma12/eqdev-spring-boot:f1"
-    - name: context
-      value: "/workspace/k8s"
-  serviceAccountName: mon-nouveau-sa
-  podTemplate:
-    imagePullSecrets:
-      - name: docker-secret
+  resources:
+    - name: source
+      resourceRef:
+        name: pipelinerun-resource
