@@ -31,20 +31,12 @@ spec:
           value: "$(params.repo-url)"
         - name: branch
           value: "$(params.branch)"     
-
-    - name: junit-task
-      taskRef:
-        name: junit-task
-      runAfter:
-        - fetch-sources
-      workspaces:
-        - name: k8s
-
+          
     - name: maven-tasks
       taskRef:
         name: maven-tasks
       runAfter:
-        - junit-task
+        - fetch-sources
       workspaces:
         - name: k8s
       params:
