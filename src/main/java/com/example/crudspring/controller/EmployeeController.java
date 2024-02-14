@@ -4,6 +4,7 @@ import com.example.crudspring.exception.ResourceNotFoundException;
 import com.example.crudspring.models.Employee;
 import com.example.crudspring.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,10 +22,10 @@ public class EmployeeController {
 
     // get all employees
     @GetMapping("/all")
-    public List<Employee> getAllEmployees(){
-        return employeeRepository.findAll();
+    public ResponseEntity<List<Employee>> getAllEmployees() {
+        List<Employee> employees = employeeRepository.findAll();
+        return new ResponseEntity<>(employees, HttpStatus.OK);
     }
-
     // create employee rest api
     @PostMapping("/create")
     public Employee createEmployee(@RequestBody Employee employee) {
