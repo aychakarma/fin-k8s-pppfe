@@ -25,7 +25,7 @@ spec:
           - name: branch
             value: "dev"
           - name: image
-            value: "karma12/eqdev-spring-boot:f1"
+            value: "karma12/eqdev-spring-boot:f10"
           - name: context
             value: "/workspace/k8s"
         serviceAccountName: mon-nouveau-sa
