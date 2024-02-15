@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend-container
-          image: karma12/eqdev-spring-boot:f1
+          image: karma12/eqdev-spring-boot:f10
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8020
