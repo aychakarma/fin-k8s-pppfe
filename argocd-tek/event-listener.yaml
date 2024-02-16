@@ -7,9 +7,9 @@ spec:
   triggers:
     - name: autre-trigger
       bindings:
-        - ref: autre-bb
+        - ref: clone-trigger
       template:
-        ref: my-trigger-template-fin-argocd
+        ref: clone-templates
   resources:
     kubernetesResource:
       serviceType: NodePort
