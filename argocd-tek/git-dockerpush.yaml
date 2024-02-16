@@ -13,14 +13,19 @@ spec:
   - name: image
     description: Reference of the image to be pushed.
   steps:
-  - name: docker-pushs
-    image: docker.io/library/docker:stable@sha256:18ff92d3d31725b53fa6633d60bed323effb6d5d4588be7b547078d384e0d4bf
+  - name: docker-login
+    image: docker.io/library/docker:stable
     env:
     - name: DOCKER_HOST
       value: unix:///var/run/docker.sock
-    workingDir: /workspace/shared-data
+    - name: DOCKER_CONFIG
+      value: /tekton/home/.docker
+    securityContext:
+      runAsUser: 0
+    workingDir: /workspace/k8s
     volumeMounts:
     - name: docker-socket
       mountPath: /var/run/docker.sock
     script: |
+      echo "aychakarma12345678910" | docker login -u "karma12" --password-stdin
       docker push $(params.image)
