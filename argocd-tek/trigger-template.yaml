@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: clone-template
+  name: clone-templates
 spec:
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
@@ -10,7 +10,7 @@ spec:
         generateName: argocd-
       spec:
         pipelineRef:
-          name: clone-reads
+          name: argocd-pip
         workspaces:
           - name: k8s
             persistentVolumeClaim:
