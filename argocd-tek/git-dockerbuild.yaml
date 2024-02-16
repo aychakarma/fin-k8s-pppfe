@@ -21,10 +21,9 @@ spec:
     env:
     - name: DOCKER_HOST
       value: unix:///var/run/docker.sock
-    workingDir: /workspace/shared-data
+    workingDir: /workspace/k8s
     volumeMounts:
     - name: docker-socket
       mountPath: /var/run/docker.sock
     script: |
       docker build --no-cache -t $(params.image) $(params.context)
-
