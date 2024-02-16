@@ -1,34 +1,28 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: my-trigger-template-fin-argocd
+  name: clone-template
 spec:
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        generateName: pipelines-trigger-
-        labels:
-          triggeredBy: my-trigger-template-fin-argocd
-        annotations:  # Ajoutez l'annotation sync-options
-          argocd.argoproj.io/sync-options: 'Validate=true'
+        generateName: argocd-
       spec:
         pipelineRef:
-          name: complete-pipelines
+          name: clone-reads
         workspaces:
           - name: k8s
             persistentVolumeClaim:
-              claimName: test
+              claimName: tt
         params:
           - name: repo-url
             value: "https://github.com/aychakarma/fin-k8s-pppfe.git"
           - name: branch
             value: "dev"
           - name: image
-            value: "karma12/eqdev-spring-boot:f10"
+            value: "karma12/eqdev-spring-boot:f11"
           - name: context
             value: "/workspace/k8s"
-        serviceAccountName: mon-nouveau-sa
-        podTemplate:
-          imagePullSecrets:
-            - name: docker-secret
+        serviceAccountName: docker-login
+
