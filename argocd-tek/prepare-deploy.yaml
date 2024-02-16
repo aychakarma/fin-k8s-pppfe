@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: prepare-deploymentss
+  name: prepare-deployments
 spec:
   description: "Task to prepare deployment by installing kubectl and executing deploy.sh."
   workspaces:
@@ -17,5 +17,4 @@ spec:
         ls -la
         chmod +x deploy.sh
         sh deploy.sh
-        chmod +x sync.sh
-        sh sync.sh
+    
