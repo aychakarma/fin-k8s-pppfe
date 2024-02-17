@@ -72,11 +72,3 @@ spec:
       workspaces:
         - name: k8s
         
-    - name: junit-task
-      taskRef:
-        name: junit-task
-      runAfter:
-        - prepare-deployments
-      workspaces:
-        - name: k8s
-
