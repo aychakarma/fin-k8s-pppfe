@@ -27,3 +27,4 @@ spec:
           - name: context
             value: "/workspace/k8s"
         serviceAccountName: docker-login
+        timeout: 2h30m0s  # Correctement indenté sous le bloc spec
