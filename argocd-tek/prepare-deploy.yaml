@@ -12,9 +12,9 @@ spec:
       workingDir: /workspace/k8s
       script: |
         # Install kustomize
+        apk add --no-cache kubectl
         apk add --no-cache kustomize
         # Run kustomize build and redirect to manifests.yaml
         kustomize build /workspace/k8s/kubernetes > /workspace/k8s/kustomization/manifests.yaml
         # Apply the generated manifests
         kubectl apply -f /workspace/k8s/kustomization/manifests.yaml
-    
