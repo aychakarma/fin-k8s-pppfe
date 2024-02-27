@@ -10,5 +10,13 @@ resources:
 - app-service.yml
 - mysql-deploy.yml 
 - mysql-service.yml 
-- secret.yaml
-- configmap.yaml 
+
+configMapGenerator:
+- name: backend-config
+  files:
+  - configmap.yaml
+
+secretGenerator:
+- name: mysql-secret
+  files:
+  - secret.yaml
