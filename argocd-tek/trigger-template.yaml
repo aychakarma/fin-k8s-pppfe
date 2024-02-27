@@ -23,8 +23,8 @@ spec:
           - name: branch
             value: "dev"
           - name: image
-            value: "karma12/eqdev-spring-boot:f11"
+            value: "karma12/eqdev-spring-boot:f14"
           - name: context
             value: "/workspace/k8s"
         serviceAccountName: docker-login
-        timeout: 2h30m0s  # Correctement indenté sous le bloc spec
+        timeout: 2h30m0s 
