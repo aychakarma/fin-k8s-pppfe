@@ -13,10 +13,12 @@ resources:
 
 configMapGenerator:
 - name: backend-config
-  files:
-  - configmap.yaml
+  literals:
+  - DB_HOST=mysqldb
+  - DB_NAME=crud-db
+  - DB_USERNAME=root
 
 secretGenerator:
 - name: mysql-secret
-  files:
-  - secret.yaml
+  literals:
+  - MYSQL_ROOT_PASSWORD=YXljaGE=
