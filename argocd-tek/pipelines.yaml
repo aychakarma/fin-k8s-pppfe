@@ -64,9 +64,9 @@ spec:
         - name: image
           value: "$(params.image)"
           
-    - name: prepare-deployments
+    - name: prepare
       taskRef:
-        name: prepare-deployments
+        name: prepare
       runAfter:
         - docker-pushs
       workspaces:
@@ -76,6 +76,6 @@ spec:
       taskRef:
         name: junit-task
       runAfter:
-        - prepare-deployments
+        - prepare
       workspaces:
         - name: k8s
