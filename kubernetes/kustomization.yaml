@@ -10,13 +10,8 @@ configMapGenerator:
 
 secretGenerator:
 - name: mysql-secret
-<<<<<<< HEAD
   literals:
   - MYSQL_ROOT_PASSWORD=YXljaGE=
-=======
-  files:
-  - secret.yaml
-
 images:
 - name: karma12/eqdev-spring-boot
   newTag: f14
@@ -26,4 +21,3 @@ resources:
 - app-service.yml
 - mysql-deploy.yml 
 - mysql-service.yml 
->>>>>>> 1ae916ef746875ee8752ca6e29ac6b7645d9cdd6
