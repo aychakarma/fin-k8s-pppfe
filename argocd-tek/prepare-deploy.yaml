@@ -17,5 +17,9 @@ spec:
         # Run kustomize build and redirect to manifests.yaml
         kustomize build /workspace/k8s/kubernetes > /workspace/k8s/kustomization/kustomization.yaml
         # Apply the generated manifests
+<<<<<<< HEAD
         kubectl apply -f /workspace/k8s/kustomization/kustomization.yaml
+=======
+        kubectl apply -f /workspace/k8s/kustomization/
+>>>>>>> 86c3f6c3c6569ef5c77462afa6ac00fcc9c68432
 
