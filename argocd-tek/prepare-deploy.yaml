@@ -18,5 +18,6 @@ spec:
         kustomize build /workspace/k8s/kubernetes > /workspace/k8s/kustomization/kustomization.yaml
         # Apply the generated manifests
         kubectl apply -f /workspace/k8s/kustomization/kustomization.yaml
+      
    
 
