@@ -12,7 +12,7 @@ spec:
           argocd.argoproj.io/compare-options: Skip  # Annotation ajoutée
       spec:
         pipelineRef:
-          name: argocd-pip
+          name: argocd-final
         workspaces:
           - name: k8s
             persistentVolumeClaim:
