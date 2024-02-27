@@ -1,20 +1,20 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: prepare-deployments
+  name: prepare-deloyments
 spec:
-  description: "Task to prepare deployment by installing kubectl and executing deploy.sh."
+  description: "Deploy Tekton resources using kustomize"
   workspaces:
     - name: k8s
   steps:
-    - name: install-kubectl
+    - name: deploy
       image: alpine:latest
       workingDir: /workspace/k8s
       script: |
-        apk add --no-cache kubectl
-        kubectl version --client
-        echo "Installed kubectl at: $(which kubectl)"
-        ls -la
-        chmod +x deploy.sh
-        sh deploy.sh
+        # Install kustomize
+        apk add --no-cache kustomize
+        # Run kustomize build and redirect to manifests.yaml
+        kustomize build /workspace/k8s/kubernetes > /workspace/k8s/kustomization/manifests.yaml
+        # Apply the generated manifests
+        kubectl apply -f /workspace/k8s/kustomization/manifests.yaml
     
