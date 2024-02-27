@@ -15,6 +15,6 @@ spec:
         apk add --no-cache kubectl
         apk add --no-cache kustomize
         # Run kustomize build and redirect to manifests.yaml
-        kustomize build /workspace/k8s/kubernetes > /workspace/k8s/kustomization/manifests.yaml
+        kustomize build /workspace/k8s/kubernetes > /workspace/k8s/kustomization/kustomization.yaml
         # Apply the generated manifests
         kubectl apply -k /workspace/k8s/kustomization/
