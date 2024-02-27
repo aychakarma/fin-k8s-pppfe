@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: argocd-pip
+  name: argocd-final
 spec:
   description: "This pipeline clones a git repo, makes mvnw executable, runs JUnit tests, builds with Maven, then builds and pushes a Docker image."
   params:
