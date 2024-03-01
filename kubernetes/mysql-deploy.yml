@@ -24,10 +24,10 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: mysql-secret
+                  name: secret-vault-git
                   key: MYSQL_ROOT_PASSWORD
             - name: MYSQL_DATABASE
               valueFrom:
                 configMapKeyRef:
-                  name: backend-config
+                  name: vault-configmap-v2-git
                   key: DB_NAME
