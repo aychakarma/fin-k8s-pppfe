@@ -24,20 +24,20 @@ spec:
             - name: DB_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: backend-config
+                  name: vault-configmap-v2-git
                   key: DB_HOST
             - name: DB_NAME
               valueFrom:
                 configMapKeyRef:
-                  name: backend-config
+                  name: vault-configmap-v2-git
                   key: DB_NAME
             - name: DB_USERNAME
               valueFrom:
                 configMapKeyRef:
-                  name: backend-config
+                  name: vault-configmap-v2-git
                   key: DB_USERNAME
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: mysql-secret
+                  name: secret-vault-git
                   key: MYSQL_ROOT_PASSWORD
