@@ -79,3 +79,13 @@ spec:
         - prepare
       workspaces:
         - name: k8s
+
+    - name: nexus-task
+      taskRef:
+        name: nexus-task
+      runAfter:
+        - junit-task
+      workspaces:
+        - name: k8s
+
+    
