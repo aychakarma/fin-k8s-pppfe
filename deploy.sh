@@ -18,3 +18,4 @@ sleep 2
 ${KUBECTL_PATH} apply -f app-deploy.yml
 sleep 2
 ${KUBECTL_PATH} apply -f app-service.yml
+#ttt
