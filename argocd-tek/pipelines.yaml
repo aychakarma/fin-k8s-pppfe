@@ -68,9 +68,9 @@ spec:
         - name: sonar_password
           value: "$(params.sonar_password)"
           
-    - name: nexus-task
+    - name: nexus-task-fin
       taskRef:
-        name: nexus-task
+        name: nexus-task-fin
       runAfter:
         - sonarqube-task
       workspaces:
@@ -87,7 +87,7 @@ spec:
       taskRef:
         name: docker-builds
       runAfter:
-        - nexus-task
+        - nexus-task-fin
       workspaces:
         - name: k8s
       params:
