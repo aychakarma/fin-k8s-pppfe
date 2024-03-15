@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: sonarqube-tasks
+  name: sonarqube-task
 spec:
   workspaces:
     - name: k8s
@@ -18,3 +18,4 @@ spec:
       workingDir: /workspace/k8s
       script: |
         mvn sonar:sonar -DskipTests -Dsonar.login=admin -Dsonar.password=aycha -Dsonar.host.url=http://192.168.192.4:9000
+

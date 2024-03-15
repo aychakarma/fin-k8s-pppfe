@@ -5,9 +5,22 @@ metadata:
 spec:
   workspaces:
   - name: k8s
+  params:
+    - name: nexus_login
+      description: "Identifiant de connexion Nexus"
+      type: string
+    - name: nexus_password
+      description: "Mot de passe de connexion Nexus"
+      type: string
+    - name: nexus_url
+      description: "URL de Nexus"
+      type: string
   steps:
   - name: maven-builds
     image: maven:3.6.3-openjdk-11
     workingDir: /workspace/k8s
     script: |
-      mvn deploy
+      mvn deploy -DskipTests \
+                 -Dnexus.login=admin \
+                 -Dnexus.password=nexus \
+                 -Dnexus.url=http://192.168.192.4:8081
