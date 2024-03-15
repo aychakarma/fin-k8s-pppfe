@@ -26,5 +26,15 @@ spec:
             value: "karma12/eqdev-spring-boot:f14"
           - name: context
             value: "/workspace/k8s"
+          - name: sonar_login
+            value: "admin"  
+          - name: sonar_password
+            value: "aycha"
+          - name: nexus_login
+            value: "admin"
+          - name: nexus_password
+            value: "nexus"
+          - name: nexus_url
+            value: "http://192.168.192.4:8081" 
         serviceAccountName: docker-login
         timeout: 2h30m0s 
