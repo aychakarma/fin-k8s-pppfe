@@ -17,6 +17,21 @@ spec:
     - name: context
       type: string
       description: "The Docker build context path."
+    - name: sonar_login
+      description: "Identifiant de connexion SonarQube"
+      type: string
+    - name: sonar_password
+      description: "Mot de passe de connexion SonarQube"
+      type: string
+    - name: nexus_login
+      description: "Identifiant de connexion Nexus"
+      type: string
+    - name: nexus_password
+      description: "Mot de passe de connexion Nexus"
+      type: string
+    - name: nexus_url
+      description: "URL de Nexus"
+      type: string
   workspaces:
     - name: k8s
   tasks:
@@ -40,11 +55,39 @@ spec:
       workspaces:
         - name: k8s
 
+    - name: sonarqube-task
+      taskRef:
+        name: sonarqube-task
+      runAfter:
+        - fetch-sources
+      workspaces:
+        - name: k8s
+      params:
+        - name: sonar_login
+          value: "$(params.sonar_login)"
+        - name: sonar_password
+          value: "$(params.sonar_password)"
+          
+    - name: nexus-task
+      taskRef:
+        name: nexus-task
+      runAfter:
+        - sonarqube-task
+      workspaces:
+        - name: k8s
+      params:
+        - name: nexus_login
+          value: "$(params.nexus_login)"
+        - name: nexus_password
+          value: "$(params.nexus_password)"
+        - name: nexus_url
+          value: "$(params.nexus_url)"
+
     - name: docker-builds
       taskRef:
         name: docker-builds
       runAfter:
-        - maven-tasks
+        - nexus-task
       workspaces:
         - name: k8s
       params:
