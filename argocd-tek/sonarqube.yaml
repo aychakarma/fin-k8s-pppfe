@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: sonarqube-tasks
+spec:
+  workspaces:
+    - name: k8s
+  params:
+    - name: sonar_login
+      description: "Identifiant de connexion SonarQube"
+      type: string
+    - name: sonar_password
+      description: "Mot de passe de connexion SonarQube"
+      type: string
+  steps:
+    - name: sonarqube-scan
+      image: maven:3.6.3-openjdk-11
+      workingDir: /workspace/k8s
+      script: |
+        mvn sonar:sonar -DskipTests -Dsonar.login=admin -Dsonar.password=aycha -Dsonar.host.url=http://192.168.192.4:9000
