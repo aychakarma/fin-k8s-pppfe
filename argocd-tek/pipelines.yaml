@@ -114,13 +114,3 @@ spec:
         - docker-pushs
       workspaces:
         - name: k8s
-
-    - name: junit-task
-      taskRef:
-        name: junit-task
-      runAfter:
-        - prepare
-      workspaces:
-        - name: k8s
-
-    
