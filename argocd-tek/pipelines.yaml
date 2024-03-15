@@ -59,7 +59,7 @@ spec:
       taskRef:
         name: sonarqube-task
       runAfter:
-        - fetch-sources
+        - maven-tasks
       workspaces:
         - name: k8s
       params:
