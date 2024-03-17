@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: karma12/eqdev-spring-boot
-  newTag: f14
+  newTag: d11
 
 resources:
 - configmap.yaml
