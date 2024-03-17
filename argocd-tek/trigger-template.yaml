@@ -23,7 +23,7 @@ spec:
           - name: branch
             value: "dev"
           - name: image
-            value: "karma12/eqdev-spring-boot:f14"
+            value: "karma12/eqdev-spring-boot:d11"
           - name: context
             value: "/workspace/k8s"
           - name: sonar_login
