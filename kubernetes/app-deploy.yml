@@ -6,7 +6,7 @@ metadata:
     app: backend-app
   annotations:
     vault.hashicorp.com/agent-inject: "true"
-    vault.hashicorp.com/agent-inject-secret-db-cred: "database/roles/mysqlrole"
+    vault.hashicorp.com/agent-inject-secret-db-cred: "database/creds/mysqlrole"
     vault.hashicorp.com/role: "web"
 spec:
   replicas: 2
