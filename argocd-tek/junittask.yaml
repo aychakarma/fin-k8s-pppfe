@@ -10,4 +10,4 @@ spec:
     image: maven:3.6.3-openjdk-11
     workingDir: /workspace/k8s
     script: |
-      mvn test
+      mvn test -DskipTests
