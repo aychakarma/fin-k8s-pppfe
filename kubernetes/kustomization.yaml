@@ -5,10 +5,7 @@ images:
   newTag: d11
 
 resources:
-- configmap.yaml
-- secret.yaml
 - app-deploy.yml
 - app-service.yml
-- mysql-deploy.yml 
-- mysql-service.yml
+
 
