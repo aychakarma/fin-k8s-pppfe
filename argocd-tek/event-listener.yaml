@@ -11,9 +11,6 @@ spec:
         - ref: clone-trigger
       template:
         ref: clone-templates
-  interceptors:
-    - cel:
-        filter: "source.branch == 'dev' && source.author == 'aychakarma'"
   resources:
     kubernetesResource:
-      serviceType: NodePort
+      serviceType: NodePort 
