@@ -15,7 +15,7 @@ spec:
           params:
             - name: "filter"
               value: >
-                body["ref"] == "refs/heads/dev" &&
+                body["repository"]["name"] == "fin-k8s-pppfe" &&
                 body["repository"]["owner"]["login"] == "aychakarma"
       bindings:
         - ref: clone-trigger
