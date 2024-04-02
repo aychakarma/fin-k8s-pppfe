@@ -7,10 +7,19 @@ spec:
   serviceAccountName: docker-login
   triggers:
     - name: autre-trigger
+      interceptors:
+        - ref:
+            name: "cel"
+            kind: ClusterInterceptor
+            apiVersion: triggers.tekton.dev/v1alpha1
+          params:
+            - name: "filter"
+              value: >
+                body.contains('branch') && body.branch == 'dev' && body.author == 'aychakarma'
       bindings:
         - ref: clone-trigger
       template:
         ref: clone-templates
   resources:
     kubernetesResource:
-      serviceType: NodePort 
+      serviceType: NodePort
