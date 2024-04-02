@@ -15,7 +15,7 @@ spec:
           params:
             - name: "filter"
               value: >
-                body.contains('branch') && body.branch == 'dev' && body.author == 'aychakarma'
+                body["branch"] == 'dev' && body["author"] == 'aychakarma'
       bindings:
         - ref: clone-trigger
       template:
