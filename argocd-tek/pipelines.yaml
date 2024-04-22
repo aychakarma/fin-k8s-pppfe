@@ -102,7 +102,9 @@ spec:
         - name: approvers
           value:
             - "karmaaycha@gmail.com"
-
+      runAfter:
+        - docker-pushs
+        
     - name: approved
       when:
         - input: $(tasks.approval.results.decision)
