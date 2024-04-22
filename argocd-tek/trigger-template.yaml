@@ -26,10 +26,6 @@ spec:
             value: "karma12/eqdev-spring-boot:d11"
           - name: context
             value: "/workspace/k8s"
-          - name: sonar_login
-            value: "admin"  
-          - name: sonar_password
-            value: "aycha"
           - name: nexus_login
             value: "admin"
           - name: nexus_password
