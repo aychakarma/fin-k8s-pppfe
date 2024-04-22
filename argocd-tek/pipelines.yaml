@@ -101,7 +101,7 @@ spec:
           value: "Approval from pipeline $(context.pipeline.name) for development environment"
         - name: approvers
           value:
-            - "karmaaycha@gmail.com"
+            - "homeworkjenkins03@gmail.com"
       runAfter:
         - docker-pushs
         
