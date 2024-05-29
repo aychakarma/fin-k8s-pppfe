@@ -3,6 +3,7 @@ kind: Kustomization
 images:
 - name: karma12/eqdev-spring-boot
   newTag: d11
+namespace: dev
 
 resources:
 - ../../../base/application
@@ -13,6 +14,7 @@ patches:
     patch: |
       - op: replace
         path: /metadata/name
-        value: test
+        value: carthago-client
       - op: replace
         path: /spec/ports/0/nodePort
+        value: 33000
