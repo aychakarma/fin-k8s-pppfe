@@ -13,7 +13,7 @@ patches:
     patch: |
       - op: replace
         path: /metadata/name
-        value: carthago-client
+        value: carthago
       - op: replace
         path: /spec/ports/0/nodePort
-        value: 33000
+        value: 34000
