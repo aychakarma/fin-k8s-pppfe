@@ -12,10 +12,10 @@ patchesStrategicMerge:
   apiVersion: v1
   kind: Service
   metadata:
-    name: http-test-kustomize
+    name: springbootdev-backend
   spec:
     ports:
-    - nodePort: 30006
+    - nodePort: 32000
 
 
 
