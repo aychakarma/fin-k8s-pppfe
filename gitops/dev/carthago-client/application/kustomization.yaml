@@ -5,7 +5,7 @@ images:
   newTag: d11
 
 resources:
-- ../../../base/application/
+- ../../../base/application
 patches:
   - target:
       kind: Service
