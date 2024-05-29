@@ -7,15 +7,12 @@ images:
 resources:
 - app-deploy.yml
 - app-service.yml
-patchesStrategicMerge:
-- | 
-  apiVersion: v1
-  kind: Service
-  metadata:
+patches:
+- target:
+    group: v1
+    kind: Service
     name: springbootdev-backend
-  spec:
-    ports:
-    - nodePort: 32000
+  path: service-port-patch.yaml
 
 
 
