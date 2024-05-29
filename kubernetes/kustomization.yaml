@@ -8,12 +8,13 @@ resources:
 - app-deploy.yml
 - app-service.yml
 patches:
-- target:
-    group: v1
-    kind: Service
-    name: springbootdev-backend
-  path: service-port-patch.yaml
-
-
-
-
+  - target:
+      kind: Service
+      name: springbootdev-backend
+    patch: |
+      - op: replace
+        path: /metadata/name
+        value: test
+      - op: replace
+        path: /spec/ports/0/nodePort
+        value: 32000

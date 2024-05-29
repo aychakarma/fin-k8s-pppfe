@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: springbootdev-backend
-spec:
-  ports:
-    - port: 8020
-      targetPort: 8020
-      nodePort: 32000  # Nouveau NodePort que vous souhaitez définir
