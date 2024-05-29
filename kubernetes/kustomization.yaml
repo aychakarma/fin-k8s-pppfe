@@ -13,6 +13,9 @@ patches:
       name: springbootdev-backend
     patch: |
       - op: replace
+        path: /metadata/name
+        value: test
+      - op: replace
         path: /spec/ports/0/nodePort
         value: 32000
 
