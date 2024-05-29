@@ -16,3 +16,4 @@ patches:
         value: test
       - op: replace
         path: /spec/ports/0/nodePort
+        value: 32000
